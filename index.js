@@ -16,7 +16,7 @@ app.use(express.json())
 
 app.use("/rest",Restaurent);
 
-app.listen(3090, async (req, res)=>{
+app.listen(3090||process.env.PORT, async (req, res)=>{
     try{
         await connect();
         console.log("Listen")
