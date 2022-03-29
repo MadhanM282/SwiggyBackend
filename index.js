@@ -6,9 +6,11 @@ const cors= require('cors');
 
 app.use(cors())
 
+const Port = process.env.PORT
+
 const Restaurent = require('./src/controller/controller')
 
-const ITEM = require('./src/controller/item')
+// const ITEM = require('./src/controller/item')
 
 const connect = require('./src/base/db')
 
@@ -16,7 +18,7 @@ app.use(express.json())
 
 app.use("/rest",Restaurent);
 
-app.listen(3090||process.env.PORT, async (req, res)=>{
+app.listen(Port||3090, async (req, res)=>{
     try{
         await connect();
         console.log("Listen")
